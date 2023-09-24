@@ -112,5 +112,53 @@ namespace BinaryTree
             }
             Console.WriteLine();
         }
+
+        public void PreOrderTraversal()
+        {
+            PreOrderTraversal(0);
+        }
+
+        private void PreOrderTraversal(int index)
+        {
+            if (index >= size)
+                return;
+
+            Console.Write(heap[index] + " ");
+            PreOrderTraversal(2 * index + 1);
+            PreOrderTraversal(2 * index + 2);
+        }
+
+        public void InOrderTraversal()
+        {
+            InOrderTraversal(0);
+        }
+
+        private void InOrderTraversal(int index)
+        {
+            if (index >= size)
+                return;
+
+            InOrderTraversal(2 * index + 1);
+            Console.Write(heap[index] + " ");
+            InOrderTraversal(2 * index + 2);
+        }
+
+        public void PostOrderTraversal()
+        {
+            PostOrderTraversal(0);
+        }
+
+        private void PostOrderTraversal(int index)
+        {
+            if (index >= size)
+                return;
+
+            PostOrderTraversal(2 * index + 1);
+            PostOrderTraversal(2 * index + 2);
+            Console.Write(heap[index] + " ");
+        }
+
+
+
     }
 }

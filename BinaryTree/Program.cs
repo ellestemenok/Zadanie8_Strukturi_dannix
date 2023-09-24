@@ -10,20 +10,22 @@ namespace BinaryTree
     {
         static void Main(string[] args)
         {
-            MinHeap minHeap = new MinHeap(10);
+            Console.Write("Введите количество элементов в куче:");
+            int capacity = int.Parse(Console.ReadLine());
 
-            // Добавление элементов
-            minHeap.Insert(4);
-            minHeap.Insert(9);
-            minHeap.Insert(2);
-            minHeap.Insert(7);
-            minHeap.Insert(5);
+            MinHeap minHeap = new MinHeap(capacity);
 
+            Console.Write("Введите элементы кучи:");
+            for (int i = 0; i < capacity; i++)
+            {
+                int value = int.Parse(Console.ReadLine());
+                minHeap.Insert(value);
+            }
 
-            minHeap.PrintHeap();
             Console.WriteLine("Минимальный элемент: " + minHeap.PeekMin()); // Выводит "2"
 
             // Удаление минимального элемента
+
             int minElement = minHeap.RemoveMin();
             Console.WriteLine("Удален минимальный элемент: " + minElement); // Выводит "2"
             minHeap.PrintHeap();
@@ -32,6 +34,19 @@ namespace BinaryTree
             minHeap.Insert(3); // Вставляем "3"
             minHeap.PrintHeap();
             Console.WriteLine("Новый минимальный элемент: " + minHeap.PeekMin()); // Выводит "4"
+
+
+            Console.WriteLine("Прямой обход:");
+            minHeap.PreOrderTraversal();
+            Console.WriteLine();
+
+            Console.WriteLine("Симметричный обход:");
+            minHeap.InOrderTraversal();
+            Console.WriteLine();
+
+            Console.WriteLine("Обратный обход:");
+            minHeap.PostOrderTraversal();
+            Console.WriteLine();
 
             Console.ReadKey();
         }
